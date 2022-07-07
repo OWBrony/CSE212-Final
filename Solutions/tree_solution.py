@@ -18,8 +18,16 @@ class tree():
             self.add_root(key,name)
         else:
             self._insert(key, name, self.root)
-
+    ###########################################
+    # Problem 1                               #
+    ###########################################
     def _insert(self,key,name,node):
+        """Code the path the item and its key should
+        take. If the the key is lower than the current
+        node's key, it should go to the node's left branch.
+        The opposite if the key is greater. Remember to assign
+        the node so it has a place. Remember, This is so you can
+        track your items later."""
         if key < node.key:
             if node.left is None:
                 node.left = tree.node(key, name)
@@ -33,27 +41,75 @@ class tree():
                 if key != node.right.key:
                     self._insert(key, name, node.right)
     
+    ###########################################
+    # End of Problem 1                        #
+    ###########################################
+
     def __iter__(self):
         """Do not touch this one"""
         yield from self._read_tree(self.root)
 
+    ###########################################
+    # Problem 2                               #
+    ###########################################
+
     def _read_tree(self,node):
+        """
+        This is for reading off what is in the tree
+        so far. This will be called from the __iter__
+        function. Use the 'yield' and 'yield from'
+        commands to get the code to span the entire
+        tree and return the name of the items
+        in your inventory.
+        """
         if node is not None:
             yield from self._read_tree(node.left)
             yield node.name
             yield from self._read_tree(node.right)
 
+    ###########################################
+    # End of Problem 2                        #
+    ###########################################
+
     def __reversed__(self):
         """Do not touch this one"""
         yield from self._read_reverse_tree(self.root)
 
+    ###########################################
+    # Problem 3                               #
+    ###########################################
+
     def _read_reverse_tree(self,node):
+        """
+        This is merely the reverse of _read_tree.
+        Sometimes, if you have a large list, it can
+        be hard to find what you are looking for.
+        This will be called by the __reversed__ function.
+        """
         if node is not None:
             yield from self._read_reverse_tree(node.right)
             yield node.name
             yield from self._read_reverse_tree(node.left)
 
+    ###########################################
+    # End of Problem 3                        #
+    ###########################################
+    ###########################################
+    # Problem 4                               #
+    ###########################################
     def search_tree(self,key,node):
+        """
+        This will be for searching for whether
+        or not a specific item is in your
+        inventory. You need to check if a node has the
+        key of your item and if it does it should report that.
+        Otherwise, you will need to search the tree. Remember
+        that there is no need to search a node that does not
+        exist. This function will call itself until an answer
+        is found. Once the search reaches the furthest it can go
+        be sure that the answer is transfered all the way back up
+        the function. Hint: there will be many if-else statements.  
+        """
         if key == node.key:
             return True
         elif key < node.key:
@@ -72,6 +128,9 @@ class tree():
                 return False
         else:
             return False
+    ###########################################
+    # End of Problem 4                        #
+    ###########################################
 # Order of results may vary
 bag = tree()
 bag.insert("sword")
