@@ -1,25 +1,52 @@
 class stack():
     def __init__(self):
-        self.first = list()
-        # self.second = list()
+        self.pile = list()
 
-    def pile_up(self, data):
-        self.first.append(data)
-
-    def undo(self):
-        self.first.pop()
-
-    def give_size(self):
-        return len(self.first)
-
-    def check_empty(self):
-        if len(self.first) == 0:
-            return True
-        return False
+    ###########################################
+    # Problem 1                               #
+    ###########################################
 
     def print_stack(self):
-        for i in self.first:
-            print(i)
+        pass
+
+    ###########################################
+    # End of Problem 1                        #
+    ###########################################
+
+    def pile_up(self, data):
+        self.pile.append(data)
+
+    ###########################################
+    # Problem 2                               #
+    ###########################################
+
+    def undo(self):
+        pass
+
+    ###########################################
+    # End of Problem 2                        #
+    ###########################################
+
+    ###########################################
+    # Problem 3                               #
+    ###########################################
+
+    def give_size(self):
+        pass
+
+    ###########################################
+    # End of Problem 3                        #
+    ###########################################
+
+    ###########################################
+    # Problem 4                               #
+    ###########################################
+    def check_empty(self):
+        pass
+
+    ###########################################
+    # End of Problem 4                        #
+    ###########################################
 
 pancakes = stack()
 

@@ -8,3 +8,10 @@
 
 * Your job is to find the differences between each of the four
 * dials using sets.
+
+## 1. Find the odd one out:
+* Check each set against the others.
+* For each item that is not in the others,
+put it in a set dedicated to those
+numbers.
+* Return the set so it can be viewed by you.
