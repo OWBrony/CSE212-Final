@@ -11,10 +11,10 @@ def single_out(set1,set2,set3,set4):
         if i not in set1 and i not in set3 and i not in set4:
             remaining.add(i)
     for i in set3:
-        if i not in set2 and i not in set2 and i not in set4:
+        if i not in set1 and i not in set2 and i not in set4:
             remaining.add(i)
     for i in set4:
-        if i not in set2 and i not in set3 and i not in set3:
+        if i not in set2 and i not in set3 and i not in set1:
             remaining.add(i)
     return remaining
 
